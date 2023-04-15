@@ -7,6 +7,8 @@ export class ConfigService implements IConfigService {
   constructor() {
     const { error, parsed } = config();
 
+    console.log('CONFIG', error, parsed);
+
     if (error) {
       throw new Error('.env is not found!');
     }
