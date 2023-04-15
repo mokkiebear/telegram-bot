@@ -8,6 +8,10 @@
     "start": "yarn build && node ./dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": "18.15.0",
+    "npm": "9.5.0"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
