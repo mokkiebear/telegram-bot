@@ -1,9 +1,10 @@
-import { config, DotenvParseOutput } from "dotenv";
+import { config, DotenvParseOutput, parse } from "dotenv";
 import { IConfigService } from "./config.interface";
+import { env } from 'process';
 
 export class ConfigService implements IConfigService {
   private config: DotenvParseOutput;
-  
+
   constructor() {
     console.log('PROCESS.ENV', process.env);
 
@@ -12,16 +13,16 @@ export class ConfigService implements IConfigService {
     console.log('CONFIG', error, parsed);
 
     if (error) {
-      throw new Error('.env is not found!');
+      console.error('.env is not found!');
     }
 
     if (!parsed) {
-      throw new Error('.env is empty!');
+      console.error('.env is empty!');
     }
 
-    this.config = parsed;
+      this.config = parsed || env as DotenvParseOutput;
   }
-  
+
   get(key: string): string {
     const result = this.config[key];
 
