@@ -13,7 +13,7 @@ export class StartCommand extends Command {
 
   handle(): void {
     this.bot.start((context) => {
-      console.log(context.session, context);
+      // console.log(context.session, context);
 
       context.reply(START_MESSAGE);
 
