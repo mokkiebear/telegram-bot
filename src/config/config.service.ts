@@ -5,9 +5,7 @@ export class ConfigService implements IConfigService {
   private config: DotenvParseOutput;
   
   constructor() {
-    const { error, parsed } = config({
-      path: '.',
-    });
+    const { error, parsed } = config({ debug: true });
 
     console.log('CONFIG', error, parsed);
 
