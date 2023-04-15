@@ -5,6 +5,8 @@ export class ConfigService implements IConfigService {
   private config: DotenvParseOutput;
   
   constructor() {
+    console.log('PROCESS.ENV', process.env);
+
     const { error, parsed } = config({ debug: true });
 
     console.log('CONFIG', error, parsed);
